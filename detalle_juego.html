@@ -23,15 +23,20 @@
             <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
         </div>
     </main>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const params = new URLSearchParams(window.location.search);
             const idJuego = params.get("id");
 
             const juegos = {
-                "1": { nombre: "Juego 1", imagen: "juego1.jpg", descripcion: "Descripción del Juego 1", precio: 59.99 },
-                "2": { nombre: "Juego 2", imagen: "juego2.jpg", descripcion: "Descripción del Juego 2", precio: 49.99 },
-                "3": { nombre: "Juego 3", imagen: "juego3.jpg", descripcion: "Descripción del Juego 3", precio: 39.99 }
+                "1": { nombre: "Nintendo Entertainment System (NES)", imagen: "https://i5.walmartimages.com/asr/f8683bec-87e1-436f-8c0e-4d15c910b2b4.f4300047da232bebfaa5896055dd8aec.jpeg", descripcion: "La NES fue la consola que lo empezó todo.", precio: 99.99 },
+                "2": { nombre: "Super Nintendo (SNES)", imagen: "https://m.media-amazon.com/images/I/71itkDwgyyL.jpg", descripcion: "Revive los mejores juegos de la era dorada.", precio: 149.99 },
+                "3": { nombre: "Sega Genesis", imagen: "https://mx.static.webuy.com/product_images/Juegos/MicroConsolas/010086100372A_l.jpg", descripcion: "Una de las mejores consolas de los 90.", precio: 129.99 },
+                "4": { nombre: "Super Mario Bros. (NES)", imagen: "https://m.media-amazon.com/images/I/61f533n2DmL._AC_UF894,1000_QL80_.jpg", descripcion: "El clásico que inició todo.", precio: 29.99 },
+                "5": { nombre: "The Legend of Zelda: Ocarina of Time", imagen: "https://i.etsystatic.com/6017061/r/il/0e2cda/6281243825/il_fullxfull.6281243825_c8j9.jpg", descripcion: "Una aventura épica en Hyrule.", precio: 39.99 },
+                "7": { nombre: "Sonic the Hedgehog (Sega Genesis)", imagen: "https://http2.mlstatic.com/D_NQ_NP_916806-MLA51269298807_082022-O.webp", descripcion: "Sonic en su primera gran aventura.", precio: 24.99 },
+                "6": { nombre: "Street Fighter II (SNES)", imagen: "https://cdn.vox-cdn.com/thumbor/0k0mFRaPiLTvqnanhZ8HNLSK6k4=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/9150693/clean_01_street_fighter_II_snes.jpg", descripcion: "El juego de peleas que marcó una generación.", precio: 34.99 }
             };
 
             if (juegos[idJuego]) {
@@ -41,24 +46,6 @@
                 document.getElementById("precioJuego").innerText = "$" + juegos[idJuego].precio;
             }
         });
-
-        function agregarAlCarrito() {
-            const params = new URLSearchParams(window.location.search);
-            const idJuego = params.get("id");
-            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-            const juegos = {
-                "1": { nombre: "Juego 1", precio: 59.99 },
-                "2": { nombre: "Juego 2", precio: 49.99 },
-                "3": { nombre: "Juego 3", precio: 39.99 }
-            };
-
-            if (juegos[idJuego]) {
-                carrito.push(juegos[idJuego]);
-                localStorage.setItem("carrito", JSON.stringify(carrito));
-                alert("Juego agregado al carrito");
-            }
-        }
     </script>
 </body>
 </html>
