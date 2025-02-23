@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Juego</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Detalles del Juego</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="carrito.html">Carrito</a>
+        </nav>
+    </header>
+    <main>
+        <div class="detalle-juego">
+            <img id="imagenJuego" src="" alt="Imagen del juego">
+            <h2 id="nombreJuego">Nombre del Juego</h2>
+            <p id="descripcionJuego">Descripción del juego...</p>
+            <p><strong>Precio: </strong><span id="precioJuego">$0.00</span></p>
+            <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const params = new URLSearchParams(window.location.search);
+            const idJuego = params.get("id");
+
+            const juegos = {
+                "1": { nombre: "Juego 1", imagen: "juego1.jpg", descripcion: "Descripción del Juego 1", precio: 59.99 },
+                "2": { nombre: "Juego 2", imagen: "juego2.jpg", descripcion: "Descripción del Juego 2", precio: 49.99 },
+                "3": { nombre: "Juego 3", imagen: "juego3.jpg", descripcion: "Descripción del Juego 3", precio: 39.99 }
+            };
+
+            if (juegos[idJuego]) {
+                document.getElementById("nombreJuego").innerText = juegos[idJuego].nombre;
+                document.getElementById("imagenJuego").src = juegos[idJuego].imagen;
+                document.getElementById("descripcionJuego").innerText = juegos[idJuego].descripcion;
+                document.getElementById("precioJuego").innerText = "$" + juegos[idJuego].precio;
+            }
+        });
+
+        function agregarAlCarrito() {
+            const params = new URLSearchParams(window.location.search);
+            const idJuego = params.get("id");
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+            const juegos = {
+                "1": { nombre: "Juego 1", precio: 59.99 },
+                "2": { nombre: "Juego 2", precio: 49.99 },
+                "3": { nombre: "Juego 3", precio: 39.99 }
+            };
+
+            if (juegos[idJuego]) {
+                carrito.push(juegos[idJuego]);
+                localStorage.setItem("carrito", JSON.stringify(carrito));
+                alert("Juego agregado al carrito");
+            }
+        }
+    </script>
+</body>
+</html>
