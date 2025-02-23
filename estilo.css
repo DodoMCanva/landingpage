@@ -1,54 +1,94 @@
-/* styles.css */
+
 body {
-    background-color: black;
+    background-color: #111;
     color: white;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     background: linear-gradient(to right, red, blue);
-    padding: 20px;
+    padding: 30px 20px;
     text-align: center;
-}
-
-nav a {
     color: white;
-    text-decoration: none;
-    margin: 0 15px;
-    font-weight: bold;
 }
 
-.juegos-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+header h1 {
+    font-size: 2.5rem;
+    margin: 0;
 }
 
-.juego {
-    border: 3px solid red;
-    padding: 10px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
+header p {
+    font-size: 1.2rem;
+    margin: 10px 0;
 }
 
-.juego img {
-    width: 150px;
-    height: 200px;
-}
-
-button {
-    background-color: blue;
+.cta-btn {
+    background-color: #ff3366;
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
-    margin-top: 10px;
-    border-radius: 5px;
+    margin-top: 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: red;
+.cta-btn:hover {
+    background-color: #cc2a52;
 }
+
+main {
+    padding: 10px 10px;
+}
+
+.productos {
+    margin: 5px 0;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ff3366;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #ff3366;
+    text-align: left;
+}
+
+.juegos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.juego {
+    border: 2px solid #ff3366;
+    padding: 10px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.juego img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.juego p {
+    font-size: 15px;
+    color: white;
+    margin-top: 10px;
+}
+
+
