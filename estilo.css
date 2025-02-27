@@ -49,6 +49,7 @@ main {
 }
 
 .informacion {
+    background: linear-gradient(to right, red, blue);
     margin: 5px 0;
 }
 
